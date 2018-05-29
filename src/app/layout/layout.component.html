@@ -1,0 +1,55 @@
+<clr-main-container>
+  <clr-header class="header header-green">
+    <div class="branding">
+      <a clrVerticalNavLink routerLink="javascript://" class="nav-link">
+        <clr-icon shape="certificate" style="color: #FFFFFF;"></clr-icon>
+        <span class="title">MOPHISO</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a href="https://www.bsigroup.com/en-TH/ISOIEC-27001-Information-Security/" class="nav-link">
+        <span class="nav-text">มาตรฐาน ISO/IEC 27001:2013</span>
+      </a>
+      <a href="/contact" class="nav-link">
+        <span class="nav-text">เกี่ยวกับ ISO/IEC 27001:2013</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <a clrVerticalNavLink routerLink="/login" class="nav-link nav-text" *ngIf="!isSession">
+        ลงชื่อเข้าใช้งาน
+      </a>
+      <clr-dropdown *ngIf="isSession">
+        <button class="nav-text" clrDropdownTrigger>
+          {{ fullName }}
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a href="javascript://" clrDropdownItem>โปรไฟล์</a>
+          <a href="/logout" clrDropdownItem>ออกจากระบบ</a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+  </clr-header>
+
+  <div class="content-container">
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+    <clr-vertical-nav [clrVerticalNavCollapsible]="collapsible" [(clrVerticalNavCollapsed)]="collapsed" [clr-nav-level]="1">
+      <a clrVerticalNavLink routerLink="./dashboard" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="dashboard"></clr-icon>
+        dashboard
+      </a>
+      <a clrVerticalNavLink routerLink="./nda-list" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="certificate"></clr-icon>
+        บันทึกข้อตกลงไม่เปิดเผยข้อมูล
+      </a>
+      <!-- <a clrVerticalNavLink routerLink="./register" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="certificate"></clr-icon>
+        ลงทะเบียน
+      </a> -->
+    </clr-vertical-nav>
+    <!-- <nav class="sidenav" [clr-nav-level]="2">
+    </nav> -->
+  </div>
+</clr-main-container>

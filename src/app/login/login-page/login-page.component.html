@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+  <form class="login">
+    <label class="title">
+      <h3 class="welcome">ยินดีต้อนรับสู่</h3>
+      ระบบบริหารจัดการข้อมูล ISO27001:2013
+      <h5 class="hint">ลงชื่อเข้าใช้งานระบบ</h5>
+    </label>
+    <div class="login-group">
+      <input name="username" class="username" type="text" [(ngModel)]="username" placeholder="ชื่อเข้าใช้งาน">
+      <input name="password" class="password" type="password" [(ngModel)]="password" placeholder="รหัสผ่าน">
+      <!-- <div class="checkbox">
+        <input type="checkbox" id="rememberme">
+        <label for="rememberme">
+          Remember me
+        </label>
+      </div>-->
+      <div class="error active" *ngIf="isError">
+        {{ errorMessage }}
+      </div>
+      <button type="button" (click)="doLogin()" [disabled]="!username || !password" class="btn btn-primary">ลงชื่อเข้าใช้</button>
+      <!-- <a href="javascript://" class="signup">Sign up for a Company ID</a> -->
+    </div>
+  </form>
+</div>
+
